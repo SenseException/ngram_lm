@@ -1,0 +1,21 @@
+{
+    "name": "senseexception/ngram_lm",
+    "description": "An easy and educational implementation of a language model in PHP",
+    "type": "project",
+    "license": "GNU",
+    "autoload": {
+        "psr-4": {
+            "Senseexception\\NgramLm\\": "src/"
+        }
+    },
+    "require-dev": {
+        "doctrine/coding-standard": "^12.0",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-strict-rules": "^1.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

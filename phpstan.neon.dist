@@ -1,0 +1,7 @@
+parameters:
+    level: 9
+    paths:
+        - "%currentWorkingDirectory%/src/"
+    treatPhpDocTypesAsCertain: false
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
