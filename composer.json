@@ -17,5 +17,8 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "require": {
+        "symfony/console": "^7.0"
     }
 }
