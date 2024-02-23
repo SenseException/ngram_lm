@@ -6,6 +6,7 @@
     <arg value="nps"/>
 
     <file>src</file>
+    <file>console</file>
 
     <rule ref="Doctrine"/>
 </ruleset>

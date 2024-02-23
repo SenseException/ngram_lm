@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Senseexception\NgramLm\Command\CreateModel;
+use Senseexception\NgramLm\Command\SentenceGenerator;
+use Senseexception\NgramLm\LanguageModel\Operator\AcidBurn86 as Operator;
+use Senseexception\NgramLm\LanguageModel\Trainer\AcidBurn86 as ModelTrainer;
+use Senseexception\NgramLm\ModelSource\File;
+use Symfony\Component\Console\Application;
+
+ini_set('memory_limit', '4G');
+ini_set('max_execution_time', '300');
+
+$modelSource       = new File('trained');
+$trainer           = new ModelTrainer($modelSource);
+$sentenceGenerator = new Operator($modelSource);
+
+$application =  new Application('ngram_lm', '0.1.0');
+$application->addCommands([
+    new CreateModel($trainer),
+    new SentenceGenerator($sentenceGenerator),
+]);
+
+$application->run();
