@@ -21,6 +21,7 @@ class File implements ModelSource
     {
     }
 
+    /** @return language_model */
     #[Override]
     public function load(): array
     {
@@ -34,6 +35,7 @@ class File implements ModelSource
         return $models;
     }
 
+    /** @param language_model $models */
     #[Override]
     public function save(array $models): void
     {
