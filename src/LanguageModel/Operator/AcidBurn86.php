@@ -26,7 +26,7 @@ class AcidBurn86 implements Operator
     /** @phpstan-var language_model */
     private array $models = [];
 
-    public function __construct(private readonly ModelSource $modelSource, private readonly int $ngrams = 6)
+    public function __construct(private readonly ModelSource $modelSource, private readonly int $ngrams)
     {
     }
 
