@@ -11,13 +11,19 @@ use Senseexception\NgramLm\LanguageModel\Operator\AcidBurn86 as Operator;
 use Senseexception\NgramLm\LanguageModel\Trainer\AcidBurn86 as ModelTrainer;
 use Senseexception\NgramLm\ModelSource\File;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
 
 ini_set('memory_limit', '4G');
 ini_set('max_execution_time', '300');
 
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__ . '/.env');
+
+$ngram = (int) $_ENV['NGRAM'];
+
 $modelSource       = new File('trained');
-$trainer           = new ModelTrainer($modelSource);
-$sentenceGenerator = new Operator($modelSource);
+$trainer           = new ModelTrainer($modelSource, $ngram);
+$sentenceGenerator = new Operator($modelSource, $ngram);
 
 $application =  new Application('ngram_lm', '0.1.0');
 $application->addCommands([
